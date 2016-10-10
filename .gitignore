@@ -1,0 +1,10 @@
+### Intellij ###
+
+## Directory-based project format
+.idea/
+/*.iml
+/*.xml
+/*.properties
+
+## Additional for IntelliJ
+bin/
