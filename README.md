@@ -14,6 +14,10 @@ Run the following command in console:
 
     java IdentifyType side1 side2 side3 [side4 ...]
 
+## TODO
+    * Add check for inequality for Quadrilateral figures and make the common
+      checking code shared between figure implementations.
+
 ## Possible extensions
     * In addition, implement Compatible interface at a geometric figure
       level.

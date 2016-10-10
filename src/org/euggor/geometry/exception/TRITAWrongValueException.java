@@ -1,4 +1,4 @@
-package geometry.exception;
+package org.euggor.geometry.exception;
 
 /**
  * Created by egorbachev on 10/10/16.

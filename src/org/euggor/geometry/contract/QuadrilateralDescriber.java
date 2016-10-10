@@ -1,4 +1,4 @@
-package geometry.contract;
+package org.euggor.geometry.contract;
 
 /**
  * Interface describing a quadrilateral and its possible types.

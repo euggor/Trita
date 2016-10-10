@@ -1,4 +1,4 @@
-package geometry.contract;
+package org.euggor.geometry.contract;
 
 /**
  * A base geometric figure interface.

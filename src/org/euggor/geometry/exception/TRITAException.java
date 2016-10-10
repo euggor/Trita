@@ -1,4 +1,4 @@
-package geometry.exception;
+package org.euggor.geometry.exception;
 
 /**
  * A base exception

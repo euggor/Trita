@@ -1,4 +1,4 @@
-package geometry.contract;
+package org.euggor.geometry.contract;
 
 /**
  * Interface describing a triangle and its possible types.

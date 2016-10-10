@@ -1,12 +1,11 @@
-package geometry;
+package org.euggor.geometry;
 
-import geometry.exception.TRITAWrongParametersException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import geometry.contract.FigureDescriber;
-import geometry.helper.TriangleDescriberImpl;
-import geometry.helper.QuadrilateralDescriberImpl;
+import org.euggor.geometry.contract.FigureDescriber;
+import org.euggor.geometry.helper.TriangleDescriberImpl;
+import org.euggor.geometry.helper.QuadrilateralDescriberImpl;
 
 /**
  * A standalone invocation wrapper.
@@ -18,6 +17,7 @@ public class IdentifyType {
 
     public static void main(String[] args) {
         FigureDescriber figure = null;
+        double[] sides;
 
         try {
             switch (args.length) {
@@ -27,11 +27,11 @@ public class IdentifyType {
                     System.exit(1);
                 case 3: // a triangle figure
                     logger.debug("Triangle figure detected");
-                    figure = new TriangleDescriberImpl(args);
+                    figure = new TriangleDescriberImpl(convertToInput(args));
                     break;
                 case 4: // a quadrilateral figure
                     logger.debug("Quadrilateral figure detected");
-                    figure = new QuadrilateralDescriberImpl(args);
+                    figure = new QuadrilateralDescriberImpl(convertToInput(args));
                     break;
                 default:
                     logger.warn("Unable to identify a figure from the input parameters:");
@@ -40,7 +40,7 @@ public class IdentifyType {
             }
 
             logger.info("This is a " + figure + "; Type is " + figure.getType());
-        } catch (TRITAWrongParametersException e) {
+        } catch (IllegalArgumentException e) {
             logger.warn("Some of the input parameters:");
             printString(args);
             logger.warn("is wrong:" + "\n\t" + e.getMessage());
@@ -51,5 +51,17 @@ public class IdentifyType {
         for (String i: str) {
             logger.warn("\t" + i);
         }
+    }
+
+    private static double[] convertToInput(String[] str) {
+        double[] side = new double[str.length];
+
+        int i = 0;
+        for (String s: str) {
+            side[i] = Double.parseDouble(s);
+            i++;
+        }
+
+        return side;
     }
 }
