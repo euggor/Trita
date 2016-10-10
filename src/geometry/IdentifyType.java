@@ -6,6 +6,7 @@ import org.apache.logging.log4j.Logger;
 
 import geometry.contract.FigureDescriber;
 import geometry.helper.TriangleDescriberImpl;
+import geometry.helper.QuadrilateralDescriberImpl;
 
 /**
  * A standalone invocation wrapper.
@@ -21,11 +22,16 @@ public class IdentifyType {
         try {
             switch (args.length) {
                 case 0:
-                    System.out.println("USAGE: IdentifyType side1_length [side2_length [side3_length] [side4_length]]");
+                    System.out.println("USAGE: IdentifyType side1_length [side2_length [side3_length] [side4_length]]\n" +
+                        "\tNote: use clockwise direction for specifying figures of more than 3 sides");
                     System.exit(1);
-                case 3: // triangle figure
+                case 3: // a triangle figure
                     logger.debug("Triangle figure detected");
                     figure = new TriangleDescriberImpl(args);
+                    break;
+                case 4: // a quadrilateral figure
+                    logger.debug("Quadrilateral figure detected");
+                    figure = new QuadrilateralDescriberImpl(args);
                     break;
                 default:
                     logger.warn("Unable to identify a figure from the input parameters:");

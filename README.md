@@ -17,8 +17,8 @@ Run the following command in console:
 ## Possible extensions
     * In addition, implement Compatible interface at a geometric figure
       level.
-    * Introduce ablity to specify anges to get more figure types such as
+    * Introduce ablity to specify angles to get more figure types such as
       acute/right/obtuse/equiangular triangles, etc.
 
 ## Author
-[Yevgeny Go](yevgor@gmail.com)
+[Yevgeny Gorbachev](yevgor@gmail.com)

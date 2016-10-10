@@ -1,5 +1,6 @@
 package tests;
 
+import geometry.exception.TRITAWrongValueException;
 import org.junit.Test;
 import org.junit.Rule;
 import org.junit.rules.ExpectedException;
@@ -22,7 +23,7 @@ public class TriangleDescriberTest {
     public final ExpectedException exception = ExpectedException.none();
 
     @Test
-    public void emptyParameters() throws TRITAWrongParametersException {
+    public void emptyStringParameters() throws TRITAWrongParametersException {
         String[] args = {};
 
         exception.expect(TRITAWrongParametersException.class);
@@ -30,15 +31,25 @@ public class TriangleDescriberTest {
     }
 
     @Test
-    public void nullParameters() throws TRITAWrongParametersException {
-        float[] args = {};
-
+    public void nullStringParameters() throws TRITAWrongParametersException {
         exception.expect(TRITAWrongParametersException.class);
-        FigureDescriber figure = new TriangleDescriberImpl(args);
+        FigureDescriber figure = new TriangleDescriberImpl((String[]) null);
     }
 
     @Test
-    public void wrongParameter1() throws TRITAWrongParametersException {
+    public void nullFloatParameters() throws TRITAWrongParametersException {
+        exception.expect(TRITAWrongParametersException.class);
+        FigureDescriber figure = new TriangleDescriberImpl((float[]) null);
+    }
+
+    @Test
+    public void nullDoubleParameters() throws TRITAWrongParametersException {
+        exception.expect(TRITAWrongParametersException.class);
+        FigureDescriber figure = new TriangleDescriberImpl((double[]) null);
+    }
+
+    @Test
+    public void wrongStringParameter1() throws TRITAWrongParametersException {
         String[] args = {"", "2", "3"};
 
         exception.expect(TRITAWrongParametersException.class);
@@ -46,7 +57,79 @@ public class TriangleDescriberTest {
     }
 
     @Test
-    public void wrongParameter2() throws TRITAWrongParametersException {
+    public void wrongNumberOfStringParameters() throws TRITAWrongParametersException {
+        String[] args = {"2"};
+
+        exception.expect(TRITAWrongParametersException.class);
+        FigureDescriber figure = new TriangleDescriberImpl(args);
+    }
+
+    @Test
+    public void wrongNumberOfStringParameters2() throws TRITAWrongParametersException {
+        String[] args = {"2", "3"};
+
+        exception.expect(TRITAWrongParametersException.class);
+        FigureDescriber figure = new TriangleDescriberImpl(args);
+    }
+
+    @Test
+    public void wrongNumberOfStringParameters4() throws TRITAWrongParametersException {
+        String[] args = {"1", "2", "3", "4"};
+
+        exception.expect(TRITAWrongParametersException.class);
+        FigureDescriber figure = new TriangleDescriberImpl(args);
+    }
+
+    @Test
+    public void wrongNumberOfFloatParameters() throws TRITAWrongParametersException {
+        float[] args = {2};
+
+        exception.expect(TRITAWrongParametersException.class);
+        FigureDescriber figure = new TriangleDescriberImpl(args);
+    }
+
+    @Test
+    public void wrongNumberOfFloatParameters2() throws TRITAWrongParametersException {
+        float[] args = {2, 3};
+
+        exception.expect(TRITAWrongParametersException.class);
+        FigureDescriber figure = new TriangleDescriberImpl(args);
+    }
+
+    @Test
+    public void wrongNumberOfFloatParameters4() throws TRITAWrongParametersException {
+        float[] args = {1, 2, 3, 4};
+
+        exception.expect(TRITAWrongParametersException.class);
+        FigureDescriber figure = new TriangleDescriberImpl(args);
+    }
+
+    @Test
+    public void wrongNumberOfDoubleParameters() throws TRITAWrongParametersException {
+        double[] args = {2};
+
+        exception.expect(TRITAWrongParametersException.class);
+        FigureDescriber figure = new TriangleDescriberImpl(args);
+    }
+
+    @Test
+    public void wrongNumberOfDoubleParameters2() throws TRITAWrongParametersException {
+        double[] args = {2, 3};
+
+        exception.expect(TRITAWrongParametersException.class);
+        FigureDescriber figure = new TriangleDescriberImpl(args);
+    }
+
+    @Test
+    public void wrongNumberOfDoubleParameters4() throws TRITAWrongParametersException {
+        double[] args = {1, 2, 3, 4};
+
+        exception.expect(TRITAWrongParametersException.class);
+        FigureDescriber figure = new TriangleDescriberImpl(args);
+    }
+
+    @Test
+    public void wrongStringParameter2() throws TRITAWrongParametersException {
         String[] args = {"1", "", "3"};
 
         exception.expect(TRITAWrongParametersException.class);
@@ -54,7 +137,7 @@ public class TriangleDescriberTest {
     }
 
     @Test
-    public void wrongParameter3() throws TRITAWrongParametersException {
+    public void wrongStringParameter3() throws TRITAWrongParametersException {
         String[] args = {"1", "2", ""};
 
         exception.expect(TRITAWrongParametersException.class);
@@ -62,7 +145,7 @@ public class TriangleDescriberTest {
     }
 
     @Test
-    public void wrongParameters() throws TRITAWrongParametersException {
+    public void wrongStringParameters() throws TRITAWrongParametersException {
         String[] args = {"", "", ""};
 
         exception.expect(TRITAWrongParametersException.class);
