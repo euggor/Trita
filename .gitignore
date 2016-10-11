@@ -3,8 +3,12 @@
 ## Directory-based project format
 .idea/
 /*.iml
-/*.xml
+/*.ipr
+/*.iws
 /*.properties
 
 ## Additional for IntelliJ
 bin/
+
+### Maven
+target/
