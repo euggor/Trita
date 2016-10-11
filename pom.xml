@@ -37,7 +37,6 @@
     <resources>
       <resource>
         <directory>resources</directory>
-        <targetPath/>
       </resource>
     </resources>
   </build>
