@@ -24,6 +24,7 @@ public class TriangleDescriberImpl implements TriangleDescriber {
             }
         }
 
+        // Check for inequality based on sides
         if (sides[0] > (sides[1] + sides[2]) | sides[1] > (sides[0] + sides[2]) |
                 sides[2] > (sides[0] + sides[1])) {
             throw new IllegalArgumentException("Violation of the triangle inequality");

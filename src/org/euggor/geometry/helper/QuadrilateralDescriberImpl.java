@@ -23,7 +23,18 @@ public class QuadrilateralDescriberImpl implements QuadrilateralDescriber {
             }
         }
 
-        // TODO: check for inequality
+        // Check for inequality based on sides
+        // https://en.wikipedia.org/wiki/Quadrilateral#cite_note-Crux-33
+        if (((Math.pow(sides[0], 2) + Math.pow(sides[1], 2) + Math.pow(sides[2], 2)) <= (Math.pow(sides[3], 2)/3) |
+            (Math.pow(sides[0], 3) + Math.pow(sides[1], 3) + Math.pow(sides[2], 3)) < (Math.pow(sides[3], 4)/27)) |
+                ((Math.pow(sides[1], 2) + Math.pow(sides[2], 2) + Math.pow(sides[3], 2)) <= (Math.pow(sides[0], 2)/3) |
+                (Math.pow(sides[1], 3) + Math.pow(sides[2], 3) + Math.pow(sides[3], 3)) < (Math.pow(sides[0], 4)/27)) |
+            ((Math.pow(sides[2], 2) + Math.pow(sides[3], 2) + Math.pow(sides[0], 2)) <= (Math.pow(sides[1], 2)/3) |
+            (Math.pow(sides[2], 3) + Math.pow(sides[3], 3) + Math.pow(sides[0], 3)) < (Math.pow(sides[1], 4)/27)) |
+                ((Math.pow(sides[3], 2) + Math.pow(sides[0], 2) + Math.pow(sides[1], 2)) <= (Math.pow(sides[2], 2)/3) |
+                (Math.pow(sides[3], 3) + Math.pow(sides[0], 3) + Math.pow(sides[1], 3)) < (Math.pow(sides[2], 4)/27))) {
+            throw new IllegalArgumentException("Violation of the quadrilateral inequality");
+        }
 
         this.side1 = sides[0];
         this.side2 = sides[1];

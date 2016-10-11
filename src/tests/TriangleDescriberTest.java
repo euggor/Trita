@@ -220,4 +220,27 @@ public class TriangleDescriberTest {
         FigureDescriber figure = new TriangleDescriberImpl(args);
     }
 
+    @Test
+    public void degenerateTriangle1() throws IllegalArgumentException {
+        double[] args = {2.2, 1.1, 1.1};
+
+        FigureDescriber figure = new TriangleDescriberImpl(args);
+        assertEquals(TYPE_ISOSCELES, figure.getType());
+    }
+
+    @Test
+    public void degenerateTriangle2() throws IllegalArgumentException {
+        double[] args = {1.2, 2.4, 1.2};
+
+        FigureDescriber figure = new TriangleDescriberImpl(args);
+        assertEquals(TYPE_ISOSCELES, figure.getType());
+    }
+
+    @Test
+    public void degenerateTriangle3() throws IllegalArgumentException {
+        double[] args = {1.3, 1.3, 2.6};
+
+        FigureDescriber figure = new TriangleDescriberImpl(args);
+        assertEquals(TYPE_ISOSCELES, figure.getType());
+    }
 }
